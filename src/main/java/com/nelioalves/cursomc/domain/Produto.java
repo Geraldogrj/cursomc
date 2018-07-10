@@ -15,7 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -28,7 +27,7 @@ public class Produto implements Serializable {
 	private String nome;
 	private Double preco;
 	
-	@JsonBackReference //Diz que do outro lado da associação já foram buscados os objetos
+	@JsonIgnore
 	@ManyToMany //Aqui eu faço o mapeamento das associações
 	@JoinTable(name = "PRODUTO_CATEGORIA", //JoinTable para criar uma tabela intermediária no BD com o nome que eu der;
 		joinColumns = @JoinColumn (name = "produto_id"), //Depois eu preciso dizer qual será a chave estrangeira que vão me referenciar
