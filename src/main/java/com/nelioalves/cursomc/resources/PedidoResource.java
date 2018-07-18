@@ -18,9 +18,9 @@ public class PedidoResource {
 	private PedidoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) { //@PathVariable p/ q o Spring entenda que o id da URL go to o id da variável 
+	public ResponseEntity<Pedido> find(@PathVariable Integer id) { //@PathVariable p/ q o Spring entenda que o id da URL go to o id da variável 
 		//ResponseEntity já encapsula várias informações de uma resposta HTTP para um serviço REST 
-		Pedido obj = service.buscar(id);
+		Pedido obj = service.find(id);
 		
 		return ResponseEntity.ok().body(obj);
 	}

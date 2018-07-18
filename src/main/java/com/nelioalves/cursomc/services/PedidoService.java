@@ -15,7 +15,7 @@ public class PedidoService {
 	@Autowired //Auto instacia - injeção
 	private PedidoRepository repo;
 	
-	public Pedido buscar(Integer id) {
+	public Pedido find(Integer id) {
 		
 		Optional<Pedido> obj = repo.findById(id);
 		
