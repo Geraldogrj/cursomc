@@ -11,10 +11,12 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.nelioalves.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
 @Inheritance (strategy = InheritanceType.JOINED) //Para mapear a superclasse e Joined para fazer uma tab com valores de pgto com cartão e bol
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type") //informe que haverá um campo adicional no json de nome @type
 public abstract class Pagamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
