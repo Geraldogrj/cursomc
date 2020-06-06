@@ -57,7 +57,7 @@ public class PedidoService {
 		obj.getPagamento().setPedido(obj); //associação de mão dupla (O pagamento precisa conhecer o pedido dele)
 		if (obj.getPagamento() instanceof PagamentoComBoleto) {
 			PagamentoComBoleto pgto = (PagamentoComBoleto) obj.getPagamento(); //pgto agora é do tipo PagmentoComBoleto
-			boletoService.preencherPagamentoComBoleto (pgto, obj.getInstance());
+			boletoService.preencherPagamentoComBoleto (pgto, obj.getInstante());
 		}
 		obj = repo.save(obj);
 		pagamentoRepository.save(obj.getPagamento());
@@ -69,7 +69,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
-		emailService.sendOrderConfirmationEmail(obj);
+		emailService.sendOrderConfirmationHtmlEmail(obj);
 		
 		return obj;
 	}

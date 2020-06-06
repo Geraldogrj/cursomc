@@ -74,7 +74,7 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
-	public Date getInstance() {
+	public Date getInstante() {
 		return instante;
 	}
 
@@ -147,7 +147,7 @@ public class Pedido implements Serializable {
 		builder.append("Pedido número: ");
 		builder.append(getId());
 		builder.append(", Instante: ");
-		builder.append(sdf.format(getInstance()));
+		builder.append(sdf.format(getInstante()));
 		builder.append(", Cliente: ");
 		builder.append(getCliente().getNome());
 		builder.append(", Situação do Pagamento: ");
